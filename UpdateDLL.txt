@@ -1,0 +1,25 @@
+void update_data(int old, int new) {
+   int pos = 0;
+   
+   if(head == NULL) {
+      printf("Linked List not initialized");
+      return;
+   } 
+
+   current = head;
+   while(current!=NULL) {
+      pos++;
+      
+      if(current->data == old) {
+         current->data = new;
+         printf("\n%d found at position %d, replaced with %d\n", old, pos, new);
+         return;
+      }
+
+      if(current->next != NULL)
+         current = current->next;
+      else
+         break;
+   }
+   printf("%d does not exist in the list\n", old);
+}
